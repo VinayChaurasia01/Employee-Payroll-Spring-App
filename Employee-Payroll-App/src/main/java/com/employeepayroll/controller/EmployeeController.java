@@ -23,7 +23,7 @@ class EmployeeController {
     @PostMapping
     public Employee createEmployee(@RequestBody Employee employee) { return service.saveEmployee(employee); }
 
-    @PutMapping("/employees/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<Employee> updateEmployee(@PathVariable Long id, @RequestBody Employee employee) {
         Employee updatedEmployee = service.updateEmployee(id, employee);
         return ResponseEntity.ok(updatedEmployee);
