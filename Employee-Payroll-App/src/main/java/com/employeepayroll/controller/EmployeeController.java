@@ -21,8 +21,8 @@ class EmployeeController {
     @GetMapping("/{id}")
     public Employee getEmployeeById(@PathVariable Long id) { return service.getEmployeeById(id); }
 
-    @PostMapping
-    public Employee createEmployee(@RequestBody EmployeeDTO employee) { return service.saveEmployee(employee); }
+    /*@PostMapping
+    public Employee createEmployee(@RequestBody EmployeeDTO employee) { return service.saveEmployee(employee); }*/
 
     @PutMapping("/{id}")
     public ResponseEntity<Employee> updateEmployee(@PathVariable Long id, @RequestBody EmployeeDTO employee) {
@@ -31,7 +31,5 @@ class EmployeeController {
     }
 
     @DeleteMapping("/{id}")
-    public void deleteEmployee(@PathVariable Long id) {
-        service.deleteEmployee(id);
-    }
+    public void deleteEmployee(@PathVariable Long id) { service.deleteEmployee(id); }
 }
