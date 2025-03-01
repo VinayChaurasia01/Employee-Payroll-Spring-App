@@ -37,26 +37,8 @@ public class GlobalExceptionHandler {
     }
 }*/
 
-@ControllerAdvice
-@Slf4j
+@RestControllerAdvice
 public class GlobalExceptionHandler {
-    private static final String message = "Exception while processing REST Request";
-    @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<ErrorResponseDTO> handleValidationExceptions(MethodArgumentNotValidException ex) {
-        Map<String, String> errors = new HashMap<>();
-        ex.getBindingResult().getFieldErrors().forEach(error ->
-                errors.put(error.getField(), error.getDefaultMessage())
-        );
-
-        ErrorResponseDTO response = new ErrorResponseDTO(
-                LocalDateTime.now(),
-                "Validation failed for request",
-                errors
-        );
-
-        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
-    }
-
 
     @ExceptionHandler(EmployeeNotFoundException.class)
     public ResponseEntity<Map<String, Object>> handleEmployeeNotFoundException(EmployeeNotFoundException ex) {
