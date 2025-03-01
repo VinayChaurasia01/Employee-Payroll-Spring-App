@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "employee_data")
 @Getter
 @Setter
 public class Employee {
